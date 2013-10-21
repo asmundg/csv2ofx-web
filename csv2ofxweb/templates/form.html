@@ -1,0 +1,14 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+<div class="container">
+  <form role="form" action="." method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    {% for control in (form.bank, form.account, form.csv)%}
+    {{ wtf.form_field(control) }}
+    {% endfor %}
+    <button type="submit" class="btn">Submit</button>
+  </form>
+</div>
+{% endblock %}
